@@ -1,0 +1,538 @@
+:root {
+  --light: #ff4356;
+  --mid: #ab3049;
+  --dark: #5f1e2e;
+  --background: #281b24;
+  --donation: #fc938d;
+}
+
+@font-face {
+  font-family: valorantFont;
+  src: url('font.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #f1f1f1;
+  background-color: var(--background);
+  user-select: none;
+}
+
+/* Scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--mid);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #444444a4;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark);
+}
+
+/* Changes the checkboxes */
+.custom-control .custom-control-input:checked~.custom-control-label::before {
+  background-color: var(--mid);
+  border-color: var(--light);
+}
+
+.custom-control .custom-control-input~.custom-control-label::before {
+  background-color: var(--dark);
+  border-color: var(--mid);
+}
+
+.custom-control .custom-control-input:checked:focus~.custom-control-label::before {
+  box-shadow: 0 0 0 1px var(--light), 0 0 0 2px var(--mid);
+}
+
+.custom-control .custom-control-input:focus~.custom-control-label::before {
+  box-shadow: 0 0 0 1px var(--mid), 0 0 0 2px var(--dark);
+  border: var(--light);
+}
+
+.custom-control .custom-control-input:active~.custom-control-label::before {
+  background-color: var(--light);
+}
+
+strong.special {
+  background-color: var(--mid) !important;
+  font-weight: 900;
+}
+
+a {
+  color: var(--light);
+}
+
+a:hover {
+  color: var(--light);
+}
+
+h1 {
+  font-family: valorantFont;
+  font-size: 50px;
+  color: var(--light);
+}
+
+h2 {
+  font-family: valorantFont;
+  font-size: 40px;
+  color: var(--mid);
+}
+
+h6 {
+  color: var(--light);
+}
+
+.input-group-text {
+  background-color: var(--light);
+  border-color: var(--light);
+  color: #f1f1f1;
+}
+
+.input-group-text.disabled {
+  background-color: var(--dark);
+  border-color: var(--dark);
+  color: #b4b4b4;
+}
+
+.input-group-text.special {
+  background-color: var(--mid);
+  border-color: var(--mid);
+  color: #f1f1f1;
+}
+
+.btn {
+  background-color: var(--light);
+  border-color: var(--mid);
+}
+
+.btn:hover,
+.btn:active {
+  background-color: var(--mid);
+}
+
+.btn:disabled {
+  background-color: var(--dark);
+}
+
+.btn:disabled {
+  border-color: var(--dark);
+}
+
+.xp-boost {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.xp-boost h5 {
+  margin-bottom: 10px;
+}
+
+.xp-boost .btn {
+  min-width: 150px;
+  background-color: var(--dark);
+  border-color: var(--dark);
+}
+
+.xp-boost .btn:active {
+  background-color: var(--mid) !important;
+  border-color: var(--mid) !important;
+}
+
+.xp-boost .btn:hover {
+  background-color: var(--mid);
+  border-color: var(--mid);
+
+}
+
+.xp-boost .btn.focus {
+  box-shadow: none;
+}
+
+/** Super weird but works **/
+.xp-boost .btn:not(:disabled):not(.disabled).active {
+  background-color: var(--light);
+  border-color: var(--light);
+
+}
+
+.btn-help {
+  background-color: var(--mid);
+  border-color: var(--dark);
+  padding: 0px 5px 0px 5px;
+  color: white;
+  font-size: 12px;
+}
+
+.btn-help:focus {
+  box-shadow: none;
+}
+
+
+.false-btn {
+  background-color: var(--mid);
+  padding-top: 7px;
+  cursor: pointer;
+}
+
+.false-btn:hover {
+  background-color: var(--light);
+  box-shadow: inset -1px -10px 25px 5px var(--mid);
+}
+
+.false-btn:active {
+  background-color: var(--dark);
+}
+
+.table {
+  background-color: var(--dark) !important;
+}
+
+.table tr td {
+  background-color: var(--mid) !important;
+}
+
+.table tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+
+.table tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+
+.list-group-item {
+  background-color: var(--mid) !important;
+}
+
+.color-box {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background-color: #ccc;
+  left: 5px;
+  top: 5px;
+}
+
+#app {
+  text-align: center;
+  padding: 15px;
+  display: none;
+}
+
+
+#logo {
+  max-width: 500px;
+  margin: 0px;
+  padding: 0px;
+  width: 80vw;
+  background: transparent;
+  margin-top: -50px;
+  margin-bottom: -50px;
+
+}
+
+#calculator {
+  padding: 25px;
+  margin: auto;
+  max-width: 450px;
+}
+
+#results {
+  max-height: 0px;
+  padding: 0px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 5px;
+  max-width: 800px;
+  background-color: var(--dark);
+}
+
+#results.animate {
+  margin-bottom: 25px;
+  animation: expand 1s forwards;
+}
+
+@keyframes expand {
+  from {
+    max-height: 0px;
+    padding: 0px;
+    opacity: 0;
+  }
+
+  to {
+    max-height: 1000px;
+    padding: 15px;
+    opacity: 1;
+  }
+}
+
+#challenges-filter {
+  text-align: left;
+  margin: auto;
+}
+
+#challenges-filter td {
+  padding: 2px;
+}
+
+#disclaimer {
+  color: #666;
+  font-size: 10px;
+}
+
+#disclaimer a {
+  color: #666;
+  text-decoration: underline;
+}
+
+#languages-list {
+  margin: 0px;
+}
+
+#languages-list li {
+  display: inline-block;
+  padding: 2px;
+  font-size: 12px;
+}
+
+#languages-list a {
+  text-decoration: underline;
+}
+
+.donation-btn {
+  background-color: var(--donation);
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  padding: 12px;
+}
+
+.donation-btn:hover {
+  filter: brightness(90%);
+  text-decoration: none;
+  color: white;
+}
+
+#social-media li {
+  margin: 10px;
+  display: inline-block;
+}
+
+footer {
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+}
+
+/** Social media buttons **/
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top;
+  background-color: transparent;
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+/* Non solid icons get a stroke */
+.resp-sharing-button__icon {
+  stroke: #fff;
+  background-color: transparent;
+  fill: none
+}
+
+/* Solid icons get a fill */
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+  background-color: #FF6600
+}
+
+.resp-sharing-button--hackernews:hover,
+.resp-sharing-button--hackernews:focus {
+  background-color: #FB6200
+}
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf;
+  border-color: #5f99cf;
+}
+
+.resp-sharing-button--reddit:hover,
+.resp-sharing-button--reddit:active {
+  background-color: #3a80c1;
+  border-color: #3a80c1;
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366;
+  border-color: #25D366;
+}
+
+.resp-sharing-button--whatsapp:hover,
+.resp-sharing-button--whatsapp:active {
+  background-color: #1DA851;
+  border-color: #1DA851;
+}
+
+.resp-sharing-button--telegram {
+  background-color: #54A9EB;
+}
+
+.resp-sharing-button--telegram:hover {
+  background-color: #4B97D1;
+}
