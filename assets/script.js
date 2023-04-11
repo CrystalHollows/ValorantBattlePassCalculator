@@ -1,5 +1,5 @@
 $(function() {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
 });
 const STARTING_DATE = new Date("2023/03/07"),
     ENDING_DATE = new Date("2023/04/24"),
@@ -43,9 +43,9 @@ const STARTING_DATE = new Date("2023/03/07"),
             fromDate: toDateString(new Date),
             toDate: toDateString(getYesterday(ENDING_DATE)),
             premiumBoostEnabled: !0,
-            premiumBoost: .03,
+            premiumBoost: 0.03,
             gamePassBoostEnabled: !1,
-            gamePassBoost: .2,
+            gamePassBoost: 0.2,
             dailyChallenges: !0,
             weeklyChallenges: !0,
             currentDayCompleted: !1,
@@ -76,27 +76,27 @@ const STARTING_DATE = new Date("2023/03/07"),
         },
         computed: {
             remainingDaysR: function() {
-                return Math.ceil((getNextDay(this.toDate, 2).getTime() - new Date(this.fromDate).getTime()) / 864e5) - 1
+                return Math.ceil((getNextDay(this.toDate, 2).getTime() - new Date(this.fromDate).getTime()) / 864e5) - 1;
             },
             currentWeekR: function() {
-                return this.totalWeeks - Math.ceil(this.remainingDaysR / 7) + 1
+                return this.totalWeeks - Math.ceil(this.remainingDaysR / 7) + 1;
             },
             triggerChanges() {
                 return `${this.currentTier}${this.tierToAchieve}${this.xpToGo}${this.fromDate}${this.toDate}
               ${this.premiumBoostEnabled}${this.gamePassBoostEnabled}${this.dailyChallenges}${this.weeklyChallenges}
-              ${this.currentDayCompleted}${this.countFromWeek}`
+              ${this.currentDayCompleted}${this.countFromWeek}`;
             }
         },
         watch: {
             triggerChanges() {
-                this.changesSinceLastCalculate = !0
+                this.changesSinceLastCalculate = !0;
             }
         },
         methods: {
             isOnMobile: () => isOnMobile()
         },
         mounted() {
-            setAds(), this.$el.style.display = "block"
+            setAds(), this.$el.style.display = "block";
         }
     });
 
@@ -111,7 +111,7 @@ function calculate() {
         let p = app.remainingDays - (app.currentDayCompleted ? 1 : 0);
         p < 0 && (p = 0);
         let n = 2e3 * p * 2;
-        app.challengesXP += n, app.neededXP -= n
+        app.challengesXP += n, app.neededXP -= n;
     }
     if (app.weeklyChallenges) {
         app.countFromWeek = Number(app.countFromWeek);
@@ -120,68 +120,68 @@ function calculate() {
         let i = app.countFromWeek,
             s = 0;
         for (let l = i; l <= app.totalWeeks; l++) s += o * l + WeeklyChallengeXP.Start;
-        app.challengesXP += s, app.neededXP -= s
+        app.challengesXP += s, app.neededXP -= s;
     }
-    app.challengesProgress = app.challengesXP / app.totalXP, app.challengesProgress + app.progress > 1 && (app.challengesProgress = 1 - app.progress), app.neededXP < 0 && (app.neededXP = 0), app.normalMatches = Math.ceil(app.neededXP / addXpBoost(AverageGainedXP.Normal.Match)), app.normalHours = app.neededXP / addXpBoost(AverageGainedXP.Normal.Hour), app.normalDailyGames = app.normalMatches / app.remainingDays, app.normalDailyHours = app.normalHours / app.remainingDays, app.rushMatches = Math.ceil(app.neededXP / addXpBoost(AverageGainedXP.SpikeRush.Match)), app.rushHours = app.neededXP / addXpBoost(AverageGainedXP.SpikeRush.Hour), app.rushDailyGames = app.rushMatches / app.remainingDays, app.rushDailyHours = app.rushHours / app.remainingDays, app.deathMatches = Math.ceil(app.neededXP / addXpBoost(AverageGainedXP.DeathMatch.Match)), app.deathHours = app.neededXP / addXpBoost(AverageGainedXP.DeathMatch.Hour), app.deathDailyGames = app.deathMatches / app.remainingDays, app.deathDailyHours = app.deathHours / app.remainingDays, app.changesSinceLastCalculate = !1
+    app.challengesProgress = app.challengesXP / app.totalXP, app.challengesProgress + app.progress > 1 && (app.challengesProgress = 1 - app.progress), app.neededXP < 0 && (app.neededXP = 0), app.normalMatches = Math.ceil(app.neededXP / addXpBoost(AverageGainedXP.Normal.Match)), app.normalHours = app.neededXP / addXpBoost(AverageGainedXP.Normal.Hour), app.normalDailyGames = app.normalMatches / app.remainingDays, app.normalDailyHours = app.normalHours / app.remainingDays, app.rushMatches = Math.ceil(app.neededXP / addXpBoost(AverageGainedXP.SpikeRush.Match)), app.rushHours = app.neededXP / addXpBoost(AverageGainedXP.SpikeRush.Hour), app.rushDailyGames = app.rushMatches / app.remainingDays, app.rushDailyHours = app.rushHours / app.remainingDays, app.deathMatches = Math.ceil(app.neededXP / addXpBoost(AverageGainedXP.DeathMatch.Match)), app.deathHours = app.neededXP / addXpBoost(AverageGainedXP.DeathMatch.Hour), app.deathDailyGames = app.deathMatches / app.remainingDays, app.deathDailyHours = app.deathHours / app.remainingDays, app.changesSinceLastCalculate = !1;
 }
 
 function addXpBoost(e) {
-    return e * (1 + app.premiumBoostEnabled * app.premiumBoost + app.gamePassBoostEnabled * app.gamePassBoost)
+    return e * (1 + app.premiumBoostEnabled * app.premiumBoost + app.gamePassBoostEnabled * app.gamePassBoost);
 }
 
 function setMaxXP() {
-    app.xpToGo = tierXP(Number(app.currentTier))
+    app.xpToGo = tierXP(Number(app.currentTier));
 }
 
 function getYesterday(e) {
     let a = new Date(e);
-    return a.setDate(a.getDate() - 1), a
+    return a.setDate(a.getDate() - 1), a;
 }
 
 function getNextDay(e, a = 1) {
     let t = new Date(e);
-    return t.setDate(t.getDate() + a), t
+    return t.setDate(t.getDate() + a), t;
 }
 
 function getDaysDifference(e, a) {
-    return Math.ceil((getNextDay(a).getTime() - e.getTime()) / 864e5) - 1
+    return Math.ceil((getNextDay(a).getTime() - e.getTime()) / 864e5) - 1;
 }
 
 function toDateString(e) {
     let a = e.getMonth() + 1,
         t = e.getDate(),
         r;
-    return a < 10 && (a = "0" + a), t < 10 && (t = "0" + t), [e.getFullYear(), a, t].join("-")
+    return a < 10 && (a = "0" + a), t < 10 && (t = "0" + t), [e.getFullYear(), a, t].join("-");
 }
 
 function toCommas(e) {
-    return e.toLocaleString()
+    return e.toLocaleString();
 }
 
 function toNumber(e) {
-    return Number(e.replace(/,/g, ""))
+    return Number(e.replace(/,/g, ""));
 }
 
 function totalXP(e) {
     let a = 0;
     e > LAST_TIER && (a = e - LAST_TIER, e = LAST_TIER);
     let t = e - 2 + 1;
-    return e < 2 || a > 5 ? 0 : t * (2e3 + 750 * (t - 1) / 2) + 36500 * a
+    return e < 2 || a > 5 ? 0 : t * (2e3 + 750 * (t - 1) / 2) + 36500 * a;
 }
 
 function tierXP(e) {
-    return e > LAST_TIER ? (e -= LAST_TIER) > 5 ? 0 : 36500 : e < 2 ? 0 : 2e3 + 750 * (e - 2)
+    return e > LAST_TIER ? (e -= LAST_TIER) > 5 ? 0 : 36500 : e < 2 ? 0 : 2e3 + 750 * (e - 2);
 }
 
 function isOnMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
 function setScrollOnResults() {
     let e = document.getElementById("results").offsetTop;
     $("html, body").animate({
         scrollTop: "" + e
-    }, 500)
+    }, 500);
 }
 
 function setAds() {
@@ -196,7 +196,7 @@ function setAds() {
             e.innerHTML = '<iframe src="//www.displaycontentnetwork.com/watchnew?key=f02dbbe91d1ac4516c8722b84b843e56" width="728" height="90" frameborder="0" scrolling="no"></iframe>';
             break;
         case "big-square-banner":
-            e.innerHTML = '<iframe src="//www.displaycontentnetwork.com/watchnew?key=31131e4b26f2ab56d760c351f02ad98c" width="300" height="250" frameborder="0" scrolling="no"></iframe>'
+            e.innerHTML = '<iframe src="//www.displaycontentnetwork.com/watchnew?key=31131e4b26f2ab56d760c351f02ad98c" width="300" height="250" frameborder="0" scrolling="no"></iframe>';
     }
 }
 app.countFromWeek = app.currentWeekR;
