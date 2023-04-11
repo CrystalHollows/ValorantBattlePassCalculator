@@ -1,1 +1,4 @@
 # Valorant-Battle-Pass-Calculator
+Use Here: 
+
+THIS IS NOT MY CREATION! I MADE SOME MiNOR CHANGES, BUT IT WAS MADE BY Frank L. Franco! ALL CREDIT GOES TO HIM!
