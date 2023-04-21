@@ -1,4 +1,4 @@
-# Valorant-Battle-Pass-Calculator
+# Valorant Battle Pass Calculator
 [Click Here to Use!](https://crystalhollows.github.io/Valorant-Battle-Pass-Calculator/)
 
 **THIS IS NOT MY CREATION! I MADE SOME MINOR CHANGES, BUT IT WAS MADE BY Frank L. Franco! ALL CREDIT GOES TO HIM!**
